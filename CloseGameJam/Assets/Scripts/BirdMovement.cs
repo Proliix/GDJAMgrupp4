@@ -47,7 +47,10 @@ public class BirdMovement : MonoBehaviour
         float dist = targetDir.magnitude;
         targetDir.z = 0;
         targetDir.Normalize();
-        this.gameObject.transform.position += targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist,1));
+        if(dist > 0.05f)
+        {
+            this.gameObject.transform.position += targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist,1));
+        }
     }
 
 }
