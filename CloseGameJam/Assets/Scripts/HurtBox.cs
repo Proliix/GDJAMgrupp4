@@ -16,4 +16,10 @@ public class HurtBox : MonoBehaviour
             health.TakeDamage();
         }
     }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireCube(transform.position, gameObject.GetComponent<BoxCollider2D>().size * 1.5f);
+    }
 }

@@ -124,5 +124,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d946c275e7e0bcf4aba54f69d74942f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalbrushes: 10
+  totalbrushes: 15
   spriteRenderer: {fileID: 1005250523442108170}

@@ -120,7 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193610195242acc478b32338d2999956, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pasteAmmount: 5
+  pasteAmmount: 10
 --- !u!70 &8228943590174123152
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

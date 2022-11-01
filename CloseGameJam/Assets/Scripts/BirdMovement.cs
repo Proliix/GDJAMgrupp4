@@ -10,41 +10,41 @@ public class BirdMovement : MonoBehaviour
     [SerializeField] bool useSmoothMovement;
     [SerializeField] float speed;
     [SerializeField] Vector3 hurtPosition;
-    bool isMovingTowardsPosition;
+    public bool isMovingTowardsPosition;
     Vector3 targetPos;
     Camera cam;
 
     void Start()
     {
         cam = Camera.main;
+        targetPos = hurtPosition;
     }
 
     void Update()
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-       
-        if(Input.GetKeyDown(KeyCode.I))
+
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            targetPos = hurtPosition;
             isMovingTowardsPosition = true;
         }
 
-        if(isMovingTowardsPosition)
+        if (isMovingTowardsPosition)
         {
-            ForcedMoveTowardsTargetPosition(targetPos,10);
-            if(Vector2.Distance(this.gameObject.transform.position, targetPos) < 0.10f)
+            ForcedMoveTowardsTargetPosition(targetPos, 10);
+            if (Vector2.Distance(this.gameObject.transform.position, targetPos) < 0.10f)
             {
                 isMovingTowardsPosition = false;
             }
             return;
         }
 
-        if(useLinearMovement)
+        if (useLinearMovement)
         {
             MoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
         }
-        else if(useSmoothMovement)
+        else if (useSmoothMovement)
         {
             SmoothMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
         }
@@ -75,9 +75,9 @@ public class BirdMovement : MonoBehaviour
         float dist = targetDir.magnitude;
         targetDir.z = 0;
         targetDir.Normalize();
-        if(dist > 0.05f)
+        if (dist > 0.05f)
         {
-            this.gameObject.transform.position += targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist,1));
+            this.gameObject.transform.position += targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist, 1));
         }
     }
 

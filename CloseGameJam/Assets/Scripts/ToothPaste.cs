@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ToothPaste : MonoBehaviour
 {
-    
+
     public float pasteAmmount = 5;
     private ToothBrush toothBrush;
 
@@ -17,7 +17,7 @@ public class ToothPaste : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("ToothBrush"))
         {
-            toothBrush.pasteRemaining += pasteAmmount;
+            toothBrush.AddPaste(pasteAmmount);
             Destroy(this.gameObject);
         }
     }
