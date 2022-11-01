@@ -5,7 +5,7 @@ using UnityEngine;
 public class ToothBrush : MonoBehaviour
 {
 
-    [SerializeField] float pasteRemaining;
+    public float pasteRemaining;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
