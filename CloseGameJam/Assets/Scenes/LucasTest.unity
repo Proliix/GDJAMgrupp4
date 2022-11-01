@@ -179,10 +179,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Bird
       objectReference: {fileID: 0}
-    - target: {fileID: 5643673787343368281, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
-      propertyPath: pasteRemaining
-      value: 20
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
