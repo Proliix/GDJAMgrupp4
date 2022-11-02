@@ -26,6 +26,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (!isSendingOut && toothManager.doneCleaning)
         {
             SendOutCocodile();
@@ -40,11 +41,6 @@ public class GameManager : MonoBehaviour
         StartCoroutine(SendInNewCrocodile());
     }
 
-    private void ChangeSendOutBool(bool value = false)
-    {
-        isSendingOut = value;
-    }
-
     public IEnumerator SendInNewCrocodile()
     {
         yield return new WaitForSeconds(4);
@@ -52,6 +48,6 @@ public class GameManager : MonoBehaviour
         anim = currentCroc.GetComponent<Animator>();
         toothManager.InitializeTeeth(currentCroc.GetComponent<AligatorController>());
         yield return new WaitForSeconds(1);
-        ChangeSendOutBool(true);
+        isSendingOut = false;
     }
 }

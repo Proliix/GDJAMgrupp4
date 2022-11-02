@@ -8,13 +8,15 @@ public class AligatorController : MonoBehaviour
     [Header("Teeth")]
     public Transform[] toothPositions;
     [Header("Timer")]
-    public float timeToShake = 5;
+    public Vector2 timeToShakeRange;
     [Tooltip("Reset time is timeToShake + timeToClose")]
-    public float timeToClose = 2.5f;
+    public Vector2 timeToCloseRange;
     [Tooltip("Reset time is timeToClose + resetTime")]
-    public float resetTime = 3f;
+    public Vector2 timeToResetRange;
 
-
+    private float timeToShake = 5;
+    private float timeToClose = 2.5f;
+    private float resetTime = 3f;
     private bool isShaking = false;
     private bool hasClosed = false;
     private Animator anim;
@@ -24,6 +26,10 @@ public class AligatorController : MonoBehaviour
     void Start()
     {
         anim = gameObject.GetComponent<Animator>();
+        timeToShake = Random.Range(timeToShakeRange.x, timeToShakeRange.y);
+        timeToClose = Random.Range(timeToCloseRange.x, timeToCloseRange.y);
+        resetTime = Random.Range(timeToResetRange.x, timeToResetRange.y);
+
 
     }
 
