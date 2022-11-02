@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    [Header("Crocodile")]
+    public GameObject cocodilePrefab;
+
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,6 +28,6 @@ public class GameManager : MonoBehaviour
 
     public void SendInNewCrocodile()
     {
-
+        
     }
 }
