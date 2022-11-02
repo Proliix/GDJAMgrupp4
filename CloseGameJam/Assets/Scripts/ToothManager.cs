@@ -10,6 +10,7 @@ public class ToothManager : MonoBehaviour
     
     public void InitializeTeeth(AligatorController aligatorController)
     {
+        toothList = new List<Tooth>();
         for(int i = 0; i < aligatorController.toothPositions.Length; i++)
         {
             GameObject toothObject = Instantiate(toothPrefab, aligatorController.toothPositions[i].position, aligatorController.toothPositions[i].rotation, aligatorController.toothPositions[i]);
