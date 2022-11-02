@@ -6,8 +6,10 @@ using UnityEngine;
 
 public class BirdMovement : MonoBehaviour
 {
+    [SerializeField] Rigidbody2D rb2d;
     [SerializeField] bool useLinearMovement;
     [SerializeField] bool useSmoothMovement;
+    [SerializeField] bool usePhysicsMovement;
     [SerializeField] float speed;
     [SerializeField] Vector3 hurtPosition;
     public bool isMovingTowardsPosition;
@@ -25,7 +27,7 @@ public class BirdMovement : MonoBehaviour
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
 
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I)) //TODO: DELETE THIS
         {
             isMovingTowardsPosition = true;
         }
@@ -48,10 +50,21 @@ public class BirdMovement : MonoBehaviour
         {
             SmoothMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
         }
+        else if(usePhysicsMovement)
+        {
+            //PhysicsMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
+        }
         else
         {
             this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
         }
+    }
+
+    private void FixedUpdate()
+    {
+        Vector3 mousePos = Input.mousePosition;
+        mousePos.z = Camera.main.nearClipPlane;
+        PhysicsMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
     }
 
     private void ForcedMoveTowardsTargetPosition(Vector2 pos, float moveSpeed)
@@ -78,6 +91,18 @@ public class BirdMovement : MonoBehaviour
         if (dist > 0.05f)
         {
             this.gameObject.transform.position += targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist, 1));
+        }
+    }
+
+    private void PhysicsMoveTowardsTargetPosition(Vector2 pos)
+    {
+        Vector3 targetDir = (Vector3)pos - this.transform.position;
+        float dist = targetDir.magnitude;
+        targetDir.z = 0;
+        targetDir.Normalize();
+        if (dist > 0.15f)
+        {
+            rb2d.MovePosition(this.gameObject.transform.position + (targetDir * Time.deltaTime * speed * Mathf.Sqrt(Mathf.Max(dist, 1))));
         }
     }
 
