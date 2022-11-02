@@ -13,11 +13,15 @@ public class ToothManager : MonoBehaviour
         toothList = new List<Tooth>();
         for(int i = 0; i < aligatorController.toothPositions.Length; i++)
         {
-            GameObject toothObject = Instantiate(toothPrefab, aligatorController.toothPositions[i].position, aligatorController.toothPositions[i].rotation, aligatorController.toothPositions[i]);
-            Tooth tooth = toothObject.GetComponent<Tooth>();
-            toothList.Add(tooth);
-            tooth.totalbrushes = Random.Range(0, 11);
-            tooth.brushesRemaining = tooth.totalbrushes;
+            if (Random.value < 0.9f)
+            {
+                GameObject toothObject = Instantiate(toothPrefab, aligatorController.toothPositions[i].position, aligatorController.toothPositions[i].rotation, aligatorController.toothPositions[i]);
+                Tooth tooth = toothObject.GetComponent<Tooth>();
+                toothList.Add(tooth);
+                tooth.totalbrushes = Random.Range(0, 11);
+                tooth.brushesRemaining = tooth.totalbrushes;
+                tooth.BrushTooth();
+            }
         }
     }
     private void Start()
