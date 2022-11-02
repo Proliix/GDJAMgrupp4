@@ -130,3 +130,5 @@ MonoBehaviour:
   dirtyToothSprite: {fileID: 21300000, guid: 9cb9d0b829b4c864f8722b55227f5a78, type: 3}
   halfCleanedToothSprite: {fileID: 21300000, guid: 29cadedf7ea8645478d0ff12548f4787, type: 3}
   cleanedToothSprite: {fileID: 21300000, guid: d052b3f3ca2bc224aa3e13e41fd4bd77, type: 3}
+  cleanedParticles: {fileID: 4957286152519947142, guid: f2c65663ef9bf3e42b057799d07cac75, type: 3}
+  brushParticles: {fileID: 2963941219945733821, guid: dc3e85705b6c9dc4eb9ee58343709912, type: 3}

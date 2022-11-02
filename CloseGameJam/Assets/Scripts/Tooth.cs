@@ -11,6 +11,8 @@ public class Tooth : MonoBehaviour
     [SerializeField] Sprite dirtyToothSprite;
     [SerializeField] Sprite halfCleanedToothSprite;
     [SerializeField] Sprite cleanedToothSprite;
+    [SerializeField] GameObject cleanedParticles;
+    [SerializeField] GameObject brushParticles;
 
     ScoreManager scoreManager;
 
@@ -23,7 +25,7 @@ public class Tooth : MonoBehaviour
     public void BrushTooth()
     {
         brushesRemaining--;
-        Debug.Log(brushesRemaining);
+        Destroy(Instantiate(brushParticles, this.gameObject.transform.position, Quaternion.identity),2f);
         UpdateToothLook();
     }
 
@@ -33,6 +35,7 @@ public class Tooth : MonoBehaviour
         {
             scoreManager.AddScore();
             spriteRenderer.sprite = cleanedToothSprite;
+            Destroy(Instantiate(cleanedParticles, this.gameObject.transform.position, Quaternion.identity), 2f);
             return;
         }
         if (brushesRemaining <= 6)
