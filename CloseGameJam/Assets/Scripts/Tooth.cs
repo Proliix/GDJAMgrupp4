@@ -29,16 +29,15 @@ public class Tooth : MonoBehaviour
 
     private void UpdateToothLook()
     {
-        if (brushesRemaining <= 6)
-        {
-            scoreManager.AddScore();
-            spriteRenderer.sprite = halfCleanedToothSprite;
-            return;
-        }
         if (brushesRemaining <= 0)
         {
             scoreManager.AddScore();
             spriteRenderer.sprite = cleanedToothSprite;
+            return;
+        }
+        if (brushesRemaining <= 6)
+        {
+            spriteRenderer.sprite = halfCleanedToothSprite;
             return;
         }
     }
