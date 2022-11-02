@@ -16,12 +16,19 @@ public class ToothManager : MonoBehaviour
         toothList = new List<Tooth>();
         for(int i = 0; i < aligatorController.toothPositions.Length; i++)
         {
-            if (Random.value < 0.9f)
+            if (Random.value < aligatorController.chanceForTooth)
             {
                 GameObject toothObject = Instantiate(toothPrefab, aligatorController.toothPositions[i].position, aligatorController.toothPositions[i].rotation, aligatorController.toothPositions[i]);
                 Tooth tooth = toothObject.GetComponent<Tooth>();
                 toothList.Add(tooth);
-                tooth.totalbrushes = Random.Range(0, 11);
+                if(Random.value < aligatorController.cleanedChance)
+                {
+                    tooth.totalbrushes = 0;
+                }
+                else
+                {
+                    tooth.totalbrushes = Random.Range(Mathf.FloorToInt(aligatorController.teethHealth.x), Mathf.FloorToInt(aligatorController.teethHealth.y) + 1);
+                }
                 tooth.brushesRemaining = tooth.totalbrushes;
             }
         }

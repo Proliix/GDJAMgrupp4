@@ -7,12 +7,19 @@ public class AligatorController : MonoBehaviour
 {
     [Header("Teeth")]
     public Transform[] toothPositions;
+    [Range(0,1)]
+    public float chanceForTooth;
+    [Range(0, 1)]
+    public float cleanedChance;
+    public Vector2 teethHealth;
     [Header("Timer")]
     public Vector2 timeToShakeRange;
     [Tooltip("Reset time is timeToShake + timeToClose")]
     public Vector2 timeToCloseRange;
     [Tooltip("Reset time is timeToClose + resetTime")]
     public Vector2 timeToResetRange;
+
+
 
     private float timeToShake = 5;
     private float timeToClose = 2.5f;

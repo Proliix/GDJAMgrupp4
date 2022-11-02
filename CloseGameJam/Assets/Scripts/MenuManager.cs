@@ -5,25 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class MenuManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    [SerializeField] GameObject creditsPanel;
     public void PlayButtonPressed()
     {
         SceneManager.LoadScene("LucasTest");
     }
     public void CreditsButtonPressed()
     {
-        //Show credits panel
+        creditsPanel.SetActive(true);
+    }
+
+    public void CloseCreditsPanel()
+    {
+        creditsPanel.SetActive(false);
     }
 
     public void ExitButtonPressed()
