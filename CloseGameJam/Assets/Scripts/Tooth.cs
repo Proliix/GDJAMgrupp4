@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class Tooth : MonoBehaviour
 {
-    [SerializeField] float totalbrushes;
-    float brushesRemaining;
-    [SerializeField] SpriteRenderer spriteRenderer;
+    public float totalbrushes;
+    public float brushesRemaining;
+    public SpriteRenderer spriteRenderer;
 
     ScoreManager scoreManager;
 

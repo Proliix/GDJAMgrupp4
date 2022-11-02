@@ -449,6 +449,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 884005914}
+    - target: {fileID: 1749095624, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: m_Interpolate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643673786322153494, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -493,6 +497,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5643673786322153496, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: rb2d
+      value: 
+      objectReference: {fileID: 875166570}
+    - target: {fileID: 5643673786322153496, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: useSmoothMovement
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643673786322153496, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: usePhysicsMovement
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5643673786322153497, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
       propertyPath: m_Name
       value: Bird
@@ -500,6 +516,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+--- !u!50 &875166570 stripped
+Rigidbody2D:
+  m_CorrespondingSourceObject: {fileID: 1749095624, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+  m_PrefabInstance: {fileID: 875166569}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &884005914
 GameObject:
   m_ObjectHideFlags: 0
