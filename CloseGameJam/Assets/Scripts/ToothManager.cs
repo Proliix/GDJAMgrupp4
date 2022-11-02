@@ -12,7 +12,9 @@ public class ToothManager : MonoBehaviour
         for(int i = 0; i < aligatorController.toothPositions.Length; i++)
         {
             GameObject toothObject = Instantiate(toothPrefab, aligatorController.toothPositions[i].position, aligatorController.toothPositions[i].rotation);
-            toothList.Add(toothObject.GetComponent<Tooth>());
+            Tooth tooth = toothObject.GetComponent<Tooth>();
+            toothList.Add(tooth);
+            tooth.totalbrushes = Random.Range(0, 11);
         }
     }
 }
