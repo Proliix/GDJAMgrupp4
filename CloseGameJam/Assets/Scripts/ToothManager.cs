@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ToothManager : MonoBehaviour
 {
+
+    [HideInInspector]public bool doneCleaning = false;
     List<Tooth> toothList;
     [SerializeField] GameObject toothPrefab;
     [SerializeField] AligatorController aligatorController;
@@ -41,6 +43,7 @@ public class ToothManager : MonoBehaviour
         }
         if(allCleaned)
         {
+            doneCleaning = true;
             Debug.Log("GAME IS OVER WIN");
         }
     }
