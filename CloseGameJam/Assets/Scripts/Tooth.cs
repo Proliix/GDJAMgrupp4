@@ -18,18 +18,24 @@ public class Tooth : MonoBehaviour
     {
         brushesRemaining = totalbrushes;
         scoreManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreManager>();
+        UpdateToothLook();
     }
     public void BrushTooth()
     {
         brushesRemaining--;
         Debug.Log(brushesRemaining);
+        UpdateToothLook();
+    }
+
+    private void UpdateToothLook()
+    {
         if (brushesRemaining <= 6)
         {
             scoreManager.AddScore();
             spriteRenderer.sprite = halfCleanedToothSprite;
             return;
         }
-        if(brushesRemaining <= 0)
+        if (brushesRemaining <= 0)
         {
             scoreManager.AddScore();
             spriteRenderer.sprite = cleanedToothSprite;

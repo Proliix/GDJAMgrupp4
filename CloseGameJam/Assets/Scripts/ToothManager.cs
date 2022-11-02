@@ -20,7 +20,6 @@ public class ToothManager : MonoBehaviour
                 toothList.Add(tooth);
                 tooth.totalbrushes = Random.Range(0, 11);
                 tooth.brushesRemaining = tooth.totalbrushes;
-                tooth.BrushTooth();
             }
         }
     }
