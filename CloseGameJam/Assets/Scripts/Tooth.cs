@@ -8,6 +8,9 @@ public class Tooth : MonoBehaviour
     public float totalbrushes;
     public float brushesRemaining;
     public SpriteRenderer spriteRenderer;
+    [SerializeField] Sprite dirtyToothSprite;
+    [SerializeField] Sprite halfCleanedToothSprite;
+    [SerializeField] Sprite cleanedToothSprite;
 
     ScoreManager scoreManager;
 
@@ -20,10 +23,17 @@ public class Tooth : MonoBehaviour
     {
         brushesRemaining--;
         Debug.Log(brushesRemaining);
-        if (brushesRemaining <= 0)
+        if (brushesRemaining <= 6)
         {
             scoreManager.AddScore();
-            spriteRenderer.color = Color.white;
+            spriteRenderer.sprite = halfCleanedToothSprite;
+            return;
+        }
+        if(brushesRemaining <= 0)
+        {
+            scoreManager.AddScore();
+            spriteRenderer.sprite = cleanedToothSprite;
+            return;
         }
     }
 
