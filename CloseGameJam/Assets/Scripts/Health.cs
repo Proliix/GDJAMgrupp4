@@ -21,6 +21,12 @@ public class Health : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.LogWarning("IMPLEMENT PROPPER PAUSE MENU/EXIT");
+            ReturnToMenu();
+        }
+
         if (playerCol.enabled == false && movement.isMovingTowardsPosition == false)
         {
             playerCol.enabled = true;
