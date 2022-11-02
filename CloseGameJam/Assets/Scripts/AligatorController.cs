@@ -5,7 +5,8 @@ using UnityEngine;
 [RequireComponent(typeof(Animator))]
 public class AligatorController : MonoBehaviour
 {
-    public GameObject HurtBox;
+    [Header("Teeth")]
+    public Transform[] toothPositions;
     [Header("Timer")]
     public float timeToShake = 5;
     [Tooltip("Reset time is timeToShake + timeToClose")]
