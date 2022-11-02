@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8228943590174123157}
   - component: {fileID: 8228943590174123153}
   - component: {fileID: 8228943590174123152}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ToothPaste
   m_TagString: Untagged
   m_Icon: {fileID: 0}

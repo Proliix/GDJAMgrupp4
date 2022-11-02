@@ -5,7 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     [Header("Crocodile")]
-    public GameObject cocodilePrefab;
+    public GameObject[] cocodilePrefabs;
     public GameObject startCroc;
 
     Vector3 startPos;
@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
     public IEnumerator SendInNewCrocodile()
     {
         yield return new WaitForSeconds(4);
-        currentCroc = Instantiate(cocodilePrefab, startPos, cocodilePrefab.transform.rotation);
+        int index = Random.Range(0, cocodilePrefabs.Length);
+        currentCroc = Instantiate(cocodilePrefabs[index], startPos, cocodilePrefabs[index].transform.rotation);
         anim = currentCroc.GetComponent<Animator>();
         toothManager.InitializeTeeth(currentCroc.GetComponent<AligatorController>());
         yield return new WaitForSeconds(1);

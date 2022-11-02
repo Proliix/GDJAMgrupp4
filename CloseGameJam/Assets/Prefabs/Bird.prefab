@@ -348,7 +348,7 @@ GameObject:
   - component: {fileID: 1601388802}
   - component: {fileID: 1601388804}
   - component: {fileID: 1601388803}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: birdanimationsheet (1)_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -410,7 +410,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 10
+  m_SortingOrder: 2
   m_Sprite: {fileID: 133996400, guid: 173896921fdb8a94182d79f75f7a540b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -605,7 +605,7 @@ GameObject:
   - component: {fileID: 315728187}
   - component: {fileID: 1749095624}
   - component: {fileID: 692570950}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bird
   m_TagString: Player
   m_Icon: {fileID: 0}

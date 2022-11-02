@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4455388158691126072}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: spawnPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4455388158691126073}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.064, y: 0.167, z: 0}
+  m_LocalPosition: {x: 0.952, y: -0.341, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 4455388159442353101}
   - component: {fileID: 4455388159442353102}
   - component: {fileID: 4455388159442353100}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: toothPasteTube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -60,12 +60,12 @@ Transform:
   m_GameObject: {fileID: 4455388159442353105}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.41, y: -3.21, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.6983, y: 1.6983, z: 1.6983}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4455388158691126072}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4455388159442353104
 SpriteRenderer:
@@ -108,9 +108,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 872d6adc080cccc44a572e7a877dc1d4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ea36d3f6bec28f545b9077f743de5b41, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 5, y: 5}
@@ -132,11 +132,11 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.045665026, y: 0.01658845}
+  m_Offset: {x: 0, y: -0.23}
   m_SpriteTilingProperty:
-    border: {x: 0.77, y: 1.3399999, z: 2.22, w: 2.7}
-    pivot: {x: 0.34088457, y: 0.3462783}
-    oldSize: {x: 5, y: 5}
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.125, y: 3.125}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -159,6 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToothPaste: {fileID: 8228943590174123156, guid: fd220c659606deb44a9d281514232063, type: 3}
   SpawnPos: {fileID: 4455388158691126072}
+  NormalTube: {fileID: 21300000, guid: ea36d3f6bec28f545b9077f743de5b41, type: 3}
+  squishedTube: {fileID: 21300000, guid: 0a26ec7aba1c9364ebfd5401504345bd, type: 3}
 --- !u!50 &4455388159442353100
 Rigidbody2D:
   serializedVersion: 4
