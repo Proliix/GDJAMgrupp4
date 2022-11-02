@@ -10,11 +10,11 @@ public class Health : MonoBehaviour
 
     BirdMovement movement;
     bool isDead = false;
-    BoxCollider2D playerCol;
+    CircleCollider2D playerCol;
 
     private void Start()
     {
-        playerCol = gameObject.GetComponent<BoxCollider2D>();
+        playerCol = gameObject.GetComponent<CircleCollider2D>();
         deathScreen.SetActive(false);
         movement = gameObject.GetComponent<BirdMovement>();
     }

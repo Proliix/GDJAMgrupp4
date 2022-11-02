@@ -12,6 +12,7 @@ public class ToothManager : MonoBehaviour
     
     public void InitializeTeeth(AligatorController aligatorController)
     {
+        doneCleaning = false;
         toothList = new List<Tooth>();
         for(int i = 0; i < aligatorController.toothPositions.Length; i++)
         {

@@ -465,6 +465,10 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 884005914}
+    - target: {fileID: 1601388804, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5643673786322153494, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -701,7 +705,7 @@ GameObject:
   - component: {fileID: 1560570105}
   - component: {fileID: 1560570104}
   m_Layer: 0
-  m_Name: image-removebg-preview (5)
+  m_Name: stump
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -724,7 +728,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 5, y: 5}
+    oldSize: {x: 1.5625, y: 1.5625}
     newSize: {x: 5, y: 5}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -774,7 +778,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -20
-  m_Sprite: {fileID: 21300000, guid: f761dd2c78a780c45b49872ff7d32822, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 0c506aac862ca57448fa89d5dd985674, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -793,8 +797,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1560570103}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.9, y: -4.42, z: 0}
-  m_LocalScale: {x: 1.2917, y: 1.2917, z: 1.2917}
+  m_LocalPosition: {x: -6.67, y: -4.2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1042,11 +1046,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4455388159442353103, guid: a45a98e78d255634cae131b314cd447f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.41
+      value: -6.45
       objectReference: {fileID: 0}
     - target: {fileID: 4455388159442353103, guid: a45a98e78d255634cae131b314cd447f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -3.21
+      value: -3.1
       objectReference: {fileID: 0}
     - target: {fileID: 4455388159442353103, guid: a45a98e78d255634cae131b314cd447f, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1095,22 +1099,6 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3404893992746177258, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3793492992520634805, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
-      propertyPath: m_Size.x
-      value: 0.34811443
-      objectReference: {fileID: 0}
-    - target: {fileID: 3793492992520634805, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
-      propertyPath: m_Size.y
-      value: 0.74406695
-      objectReference: {fileID: 0}
-    - target: {fileID: 3793492992520634805, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
-      propertyPath: m_Offset.y
-      value: 0.12783803
-      objectReference: {fileID: 0}
     - target: {fileID: 7497257743255834238, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
       propertyPath: m_RootOrder
       value: 2

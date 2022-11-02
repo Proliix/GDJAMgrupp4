@@ -36,8 +36,8 @@ public class GameManager : MonoBehaviour
     {
         isSendingOut = true;
         anim.SetTrigger("Remove");
-        Destroy(currentCroc, 2);
-        Invoke(nameof(SendInNewCrocodile), 2);
+        Destroy(currentCroc, 4);
+        StartCoroutine(SendInNewCrocodile());
     }
 
     private void ChangeSendOutBool(bool value = false)
@@ -45,11 +45,13 @@ public class GameManager : MonoBehaviour
         isSendingOut = value;
     }
 
-    public void SendInNewCrocodile()
+    public IEnumerator SendInNewCrocodile()
     {
+        yield return new WaitForSeconds(4);
         currentCroc = Instantiate(cocodilePrefab, startPos, cocodilePrefab.transform.rotation);
         anim = currentCroc.GetComponent<Animator>();
         toothManager.InitializeTeeth(currentCroc.GetComponent<AligatorController>());
-        Invoke(nameof(ChangeSendOutBool), 2);
+        yield return new WaitForSeconds(1);
+        ChangeSendOutBool(true);
     }
 }
