@@ -19,7 +19,8 @@ public class TubeController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player") && player.transform.position.y > gameObject.transform.position.y)
         {
-            Instantiate(ToothPaste, SpawnPos.position, ToothPaste.transform.rotation);
+            GameObject obj = Instantiate(ToothPaste, SpawnPos.position, ToothPaste.transform.rotation);
+            Destroy(obj, 5);
         }
     }
 }

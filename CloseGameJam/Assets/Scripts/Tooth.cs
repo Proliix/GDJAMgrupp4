@@ -9,23 +9,27 @@ public class Tooth : MonoBehaviour
     float brushesRemaining;
     [SerializeField] SpriteRenderer spriteRenderer;
 
+    ScoreManager scoreManager;
+
     private void Start()
     {
         brushesRemaining = totalbrushes;
+        scoreManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreManager>();
     }
     public void BrushTooth()
     {
         brushesRemaining--;
         Debug.Log(brushesRemaining);
-        if(brushesRemaining <= 0)
+        if (brushesRemaining <= 0)
         {
+            scoreManager.AddScore();
             spriteRenderer.color = Color.white;
         }
     }
 
     public bool IsBrushed()
     {
-        if(brushesRemaining <= 0)
+        if (brushesRemaining <= 0)
         {
             return true;
         }
