@@ -14,8 +14,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI CrocTimerText;
     [Header("Pause")]
     public GameObject pauseObj;
+    [Header("GameOver")]
+    public GameObject gameOverObj;
 
-
+    Health pHealth;
     float crocTimer;
     Vector3 startPos;
     GameObject currentCroc;
@@ -27,6 +29,8 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ResumeGame();
+        pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
+        gameOverObj.SetActive(false);
         currentCroc = startCroc;
         startPos = currentCroc.transform.position;
         anim = currentCroc.GetComponent<Animator>();
@@ -50,8 +54,8 @@ public class GameManager : MonoBehaviour
     {
         pauseObj.SetActive(false);
         Time.timeScale = 1;
-
     }
+
 
 
     // Update is called once per frame
@@ -70,8 +74,13 @@ public class GameManager : MonoBehaviour
             CrocTimerText.text = crocTimer.ToString("F2");
 
 
+        if (pHealth.isDead)
+        {
+            Time.timeScale = 0;
+            gameOverObj.SetActive(true);
+        }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !pHealth.isDead)
         {
             Time.timeScale = 0;
             pauseObj.SetActive(true);

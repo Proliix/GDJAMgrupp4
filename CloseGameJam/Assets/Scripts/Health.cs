@@ -7,7 +7,6 @@ using UnityEngine.SceneManagement;
 public class Health : MonoBehaviour
 {
     [SerializeField] int health = 3;
-    [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject birdAnimObj;
     [Header("UI")]
     public GameObject healthImage;
@@ -18,7 +17,7 @@ public class Health : MonoBehaviour
     GameObject[] healthImages;
     Animator birdAnim;
     BirdMovement movement;
-    bool isDead = false;
+    [HideInInspector]public bool isDead = false;
     CircleCollider2D playerCol;
 
     private void Start()
@@ -32,7 +31,6 @@ public class Health : MonoBehaviour
             healthImages[i] = img;
         }
         playerCol = gameObject.GetComponent<CircleCollider2D>();
-        deathScreen.SetActive(false);
         movement = gameObject.GetComponent<BirdMovement>();
         birdAnim = birdAnimObj.GetComponent<Animator>();
     }
@@ -46,10 +44,6 @@ public class Health : MonoBehaviour
         }
     }
 
-    private void ReturnToMenu()
-    {
-        SceneManager.LoadScene("Menu");
-    }
 
     public void TakeDamage()
     {
@@ -69,9 +63,7 @@ public class Health : MonoBehaviour
             playerCol.enabled = false;
             if (health <= 0)
             {
-                deathScreen.SetActive(true);
                 isDead = true;
-                Invoke(nameof(ReturnToMenu), 5);
             }
         }
     }
