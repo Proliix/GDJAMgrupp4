@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour
     public GameObject pauseObj;
     [Header("GameOver")]
     public GameObject gameOverObj;
+    public GameObject timeoutObj;
     [Header("Day Night Cycle")]
     public GameObject ClockArrow;
     public GameObject Background;
@@ -40,6 +41,7 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ResumeGame();
+        timeoutObj.SetActive(false);
         sound = gameObject.GetComponent<AudioSource>();
         clockArmAnim = ClockArrow.GetComponent<Animator>();
         backgroundAnim = Background.GetComponent<Animator>();
@@ -110,10 +112,11 @@ public class GameManager : MonoBehaviour
             if (sound.isPlaying)
                 sound.Stop();
 
-            pHealth.isDead = true;
+            Time.timeScale = 0;
+            timeoutObj.SetActive(true);
         }
 
-        if (DayNightTime <= 12 && !sound.isPlaying && !pHealth.isDead)
+        if (DayNightTime <= 12 && !sound.isPlaying && !pHealth.isDead && DayNightTime > 0)
         {
             sound.Play();
             soundAnim.SetTrigger("StartSound");
