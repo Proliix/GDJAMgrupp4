@@ -28,6 +28,7 @@ public class ToothManager : MonoBehaviour
                 if(Random.value < aligatorController.achingChance)
                 {
                     tooth.isAching = true;
+                    tooth.totalbrushes = 1;
                 }
                 else
                 {
