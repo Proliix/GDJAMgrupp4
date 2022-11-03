@@ -24,6 +24,8 @@ public class BirdMovement : MonoBehaviour
 
     void Update()
     {
+        //RotationCheck();
+
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
         if (isMovingTowardsPosition)
@@ -64,16 +66,44 @@ public class BirdMovement : MonoBehaviour
 
         if (worldpos.x - this.transform.position.x < -0.2f)
         {
-            //Flip it to be facing left
             this.transform.localScale = new Vector3(-1, 1, 1);
-            Debug.Log("Left");
         }
         if (worldpos.x - this.transform.position.x > 0.2f)
         {
-            //Flip it to be facing right
             this.transform.localScale = new Vector3(1, 1, 1);
-            Debug.Log("Right");
         }
+    }
+
+    private void RotationCheck()
+    {
+        if(Input.GetMouseButton(0))
+        {
+            rb2d.MoveRotation(Random.value * 45);
+            //this.transform.Rotate(transform.forward, 180*Time.deltaTime); 
+        }
+        else if(Input.GetMouseButton(1))
+        {
+            //this.transform.Rotate(transform.forward, -180 * Time.deltaTime);
+        }
+        else
+        {
+            //this.transform.Rotate(transform.forward, Mathf.Sign(this.transform.localRotation.eulerAngles.z - 180) * 180 * Time.deltaTime);
+            if (Mathf.Abs(this.transform.eulerAngles.z) < 720 * Time.deltaTime)
+            {
+                this.transform.localRotation = Quaternion.Euler(0, 0, 0);
+            }
+        }
+        if (this.transform.localRotation.eulerAngles.z - 180 > -135 && this.transform.localRotation.eulerAngles.z - 180 < 0)
+        {
+            rb2d.MoveRotation(45);
+            this.transform.localRotation = Quaternion.Euler(0, 0, 45);
+        }
+        if (this.transform.localRotation.eulerAngles.z - 180 < 135 && this.transform.localRotation.eulerAngles.z - 180 > 0)
+        {
+            rb2d.MoveRotation(-45);
+            this.transform.localRotation = Quaternion.Euler(0, 0, -45);
+        }
+
     }
 
     private void ForcedMoveTowardsTargetPosition(Vector2 pos, float moveSpeed)
