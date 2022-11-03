@@ -10,6 +10,8 @@ public class BirdMovement : MonoBehaviour
     [SerializeField] bool useLinearMovement;
     [SerializeField] bool useSmoothMovement;
     [SerializeField] bool usePhysicsMovement;
+    [SerializeField] GameObject birdImageObject;
+    [SerializeField] GameObject toothbrushObject;
     [SerializeField] float speed;
     [SerializeField] Vector3 hurtPosition;
     public bool isMovingTowardsPosition;
@@ -24,7 +26,7 @@ public class BirdMovement : MonoBehaviour
 
     void Update()
     {
-        //RotationCheck();
+        RotationCheck();
 
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
@@ -66,11 +68,11 @@ public class BirdMovement : MonoBehaviour
 
         if (worldpos.x - this.transform.position.x < -0.2f)
         {
-            this.transform.localScale = new Vector3(-1, 1, 1);
+            birdImageObject.transform.localScale = new Vector3(-1, 1, 1);
         }
         if (worldpos.x - this.transform.position.x > 0.2f)
         {
-            this.transform.localScale = new Vector3(1, 1, 1);
+            birdImageObject.transform.localScale = new Vector3(1, 1, 1);
         }
     }
 
@@ -78,30 +80,27 @@ public class BirdMovement : MonoBehaviour
     {
         if(Input.GetMouseButton(0))
         {
-            rb2d.MoveRotation(Random.value * 45);
-            //this.transform.Rotate(transform.forward, 180*Time.deltaTime); 
+            toothbrushObject.transform.Rotate(transform.forward, 180*Time.deltaTime); 
         }
         else if(Input.GetMouseButton(1))
         {
-            //this.transform.Rotate(transform.forward, -180 * Time.deltaTime);
+            toothbrushObject.transform.Rotate(transform.forward, -180 * Time.deltaTime);
         }
         else
         {
-            //this.transform.Rotate(transform.forward, Mathf.Sign(this.transform.localRotation.eulerAngles.z - 180) * 180 * Time.deltaTime);
-            if (Mathf.Abs(this.transform.eulerAngles.z) < 720 * Time.deltaTime)
+            toothbrushObject.transform.Rotate(transform.forward, Mathf.Sign(toothbrushObject.transform.localRotation.eulerAngles.z - 180) * 180 * Time.deltaTime);
+            if (Mathf.Abs(toothbrushObject.transform.eulerAngles.z) < 720 * Time.deltaTime)
             {
-                this.transform.localRotation = Quaternion.Euler(0, 0, 0);
+                toothbrushObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
         }
-        if (this.transform.localRotation.eulerAngles.z - 180 > -135 && this.transform.localRotation.eulerAngles.z - 180 < 0)
+        if (toothbrushObject.transform.localRotation.eulerAngles.z - 180 > -150 && toothbrushObject.transform.localRotation.eulerAngles.z - 180 < 0)
         {
-            rb2d.MoveRotation(45);
-            this.transform.localRotation = Quaternion.Euler(0, 0, 45);
+            toothbrushObject.transform.localRotation = Quaternion.Euler(0, 0, 30);
         }
-        if (this.transform.localRotation.eulerAngles.z - 180 < 135 && this.transform.localRotation.eulerAngles.z - 180 > 0)
+        if (toothbrushObject.transform.localRotation.eulerAngles.z - 180 < 150 && toothbrushObject.transform.localRotation.eulerAngles.z - 180 > 0)
         {
-            rb2d.MoveRotation(-45);
-            this.transform.localRotation = Quaternion.Euler(0, 0, -45);
+            toothbrushObject.transform.localRotation = Quaternion.Euler(0, 0, -30);
         }
 
     }
