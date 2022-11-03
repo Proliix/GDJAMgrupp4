@@ -26,37 +26,32 @@ public class BirdMovement : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-
-        if (Input.GetKeyDown(KeyCode.I)) //TODO: DELETE THIS
-        {
-            isMovingTowardsPosition = true;
-        }
-
         if (isMovingTowardsPosition)
         {
-            ForcedMoveTowardsTargetPosition(targetPos, 10);
+            ForcedMoveTowardsTargetPosition(targetPos, 4);
             if (Vector2.Distance(this.gameObject.transform.position, targetPos) < 0.10f)
             {
                 isMovingTowardsPosition = false;
             }
-            return;
-        }
-
-        if (useLinearMovement)
-        {
-            MoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
-        }
-        else if (useSmoothMovement)
-        {
-            SmoothMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
-        }
-        else if(usePhysicsMovement)
-        {
-            //PhysicsMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
         }
         else
         {
-            this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            if (useLinearMovement)
+            {
+                MoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
+            }
+            else if (useSmoothMovement)
+            {
+                SmoothMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
+            }
+            else if (usePhysicsMovement)
+            {
+                //PhysicsMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
+            }
+            else
+            {
+                this.gameObject.transform.position = Camera.main.ScreenToWorldPoint(mousePos);
+            }
         }
     }
 
@@ -64,7 +59,21 @@ public class BirdMovement : MonoBehaviour
     {
         Vector3 mousePos = Input.mousePosition;
         mousePos.z = Camera.main.nearClipPlane;
-        PhysicsMoveTowardsTargetPosition(cam.ScreenToWorldPoint(mousePos));
+        Vector3 worldpos = cam.ScreenToWorldPoint(mousePos);
+        PhysicsMoveTowardsTargetPosition(worldpos);
+
+        if (worldpos.x - this.transform.position.x < -0.2f)
+        {
+            //Flip it to be facing left
+            this.transform.localScale = new Vector3(-1, 1, 1);
+            Debug.Log("Left");
+        }
+        if (worldpos.x - this.transform.position.x > 0.2f)
+        {
+            //Flip it to be facing right
+            this.transform.localScale = new Vector3(1, 1, 1);
+            Debug.Log("Right");
+        }
     }
 
     private void ForcedMoveTowardsTargetPosition(Vector2 pos, float moveSpeed)
