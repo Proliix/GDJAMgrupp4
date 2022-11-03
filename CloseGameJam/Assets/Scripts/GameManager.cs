@@ -140,6 +140,7 @@ public class GameManager : MonoBehaviour
     {
         isSendingOut = true;
         anim.SetTrigger("Remove");
+        anim.SetBool("isLeaving",true);
         Destroy(currentCroc, 4);
         StartCoroutine(SendInNewCrocodile());
     }
@@ -150,6 +151,7 @@ public class GameManager : MonoBehaviour
         int index = Random.Range(0, cocodilePrefabs.Length);
         currentCroc = Instantiate(cocodilePrefabs[index], startPos, cocodilePrefabs[index].transform.rotation);
         anim = currentCroc.GetComponent<Animator>();
+        anim.SetBool("isLeaving", false);
         toothManager.InitializeTeeth(currentCroc.GetComponent<AligatorController>());
         yield return new WaitForSeconds(1);
         crocTimer = crocTimeToLeave;
