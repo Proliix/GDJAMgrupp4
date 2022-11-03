@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     public float imageGap = 10;
 
     GameObject[] healthImages;
+    [SerializeField] GameObject damageParticles;
     Animator birdAnim;
     BirdMovement movement;
     [HideInInspector]public bool isDead = false;
@@ -49,6 +50,7 @@ public class Health : MonoBehaviour
     {
         if (movement.isMovingTowardsPosition == false)
         {
+            Destroy(Instantiate(damageParticles, this.transform.position, Quaternion.identity), 2);
             birdAnim.SetTrigger("TakeDamage");
             health--;
             for (int i = 0; i < healthImages.Length; i++)
