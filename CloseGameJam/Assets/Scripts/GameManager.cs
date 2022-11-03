@@ -27,10 +27,12 @@ public class GameManager : MonoBehaviour
     Health pHealth;
     float crocTimer;
     Vector3 startPos;
-    public GameObject currentCroc;
+    [HideInInspector] public GameObject currentCroc;
     Animator anim;
     Animator clockArmAnim;
     Animator backgroundAnim;
+    Animator soundAnim;
+    AudioSource sound;
     ToothManager toothManager;
     bool isSendingOut = false;
 
@@ -38,8 +40,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ResumeGame();
+        sound = gameObject.GetComponent<AudioSource>();
         clockArmAnim = ClockArrow.GetComponent<Animator>();
         backgroundAnim = Background.GetComponent<Animator>();
+        soundAnim = gameObject.GetComponent<Animator>();
         clockArmAnim.SetFloat("TimeScale", 1 / DayNightTime);
         backgroundAnim.SetFloat("TimeScale", 1 / DayNightTime);
         pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
@@ -83,7 +87,7 @@ public class GameManager : MonoBehaviour
         while (elapsed < duration)
         {
 
-           float x = Random.Range(-1f, 1f) * magnitude;
+            float x = Random.Range(-1f, 1f) * magnitude;
             float y = Random.Range(-1f, 1f) * magnitude;
 
             Camera.main.transform.localPosition = new Vector3(x, y, OriginalPos.z);
@@ -100,10 +104,21 @@ public class GameManager : MonoBehaviour
     {
         DayNightTime -= Time.deltaTime;
 
+
         if (DayNightTime <= 0)
         {
+            if (sound.isPlaying)
+                sound.Stop();
+
             pHealth.isDead = true;
         }
+
+        if (DayNightTime <= 12 && !sound.isPlaying && !pHealth.isDead)
+        {
+            sound.Play();
+            soundAnim.SetTrigger("StartSound");
+        }
+
 
         if (crocTimer > 0)
         {
@@ -140,7 +155,7 @@ public class GameManager : MonoBehaviour
     {
         isSendingOut = true;
         anim.SetTrigger("Remove");
-        anim.SetBool("isLeaving",true);
+        anim.SetBool("isLeaving", true);
         Destroy(currentCroc, 4);
         StartCoroutine(SendInNewCrocodile());
     }
