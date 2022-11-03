@@ -3468,6 +3468,8 @@ MonoBehaviour:
   - {fileID: 4127073248389356252, guid: 8e134584add9b9540b198cac9001cefd, type: 3}
   - {fileID: 946701901740193251, guid: ff8f5f457eb978241a4374da471e8cb2, type: 3}
   - {fileID: 946701901740193251, guid: 4b7b7417421333e45ab968138e9b8f8b, type: 3}
+  - {fileID: 946701901740193251, guid: 94f9983d97f441742833cd9384445b85, type: 3}
+  - {fileID: 7497257743255834239, guid: 3a059e9d1c4c247438062036897ef222, type: 3}
   startCroc: {fileID: 825078451}
   crocTimeToLeave: 30
   CrocTimerText: {fileID: 500996421}
