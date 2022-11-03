@@ -20,7 +20,7 @@ public class Tooth : MonoBehaviour
     {
         brushesRemaining = totalbrushes;
         scoreManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<ScoreManager>();
-        UpdateToothLook();
+        SetToothLook();
     }
     public void BrushTooth()
     {
@@ -36,6 +36,20 @@ public class Tooth : MonoBehaviour
             scoreManager.AddScore();
             spriteRenderer.sprite = cleanedToothSprite;
             Destroy(Instantiate(cleanedParticles, this.gameObject.transform.position, Quaternion.identity), 2f);
+            return;
+        }
+        if (brushesRemaining <= 6)
+        {
+            spriteRenderer.sprite = halfCleanedToothSprite;
+            return;
+        }
+    }
+
+    private void SetToothLook()
+    {
+        if (brushesRemaining <= 0)
+        {
+            spriteRenderer.sprite = cleanedToothSprite;
             return;
         }
         if (brushesRemaining <= 6)
