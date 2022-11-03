@@ -1874,6 +1874,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875166571}
     - target: {fileID: 5643673787343368281, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: pasteRemaining
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643673787343368281, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
       propertyPath: clips.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -3464,6 +3468,8 @@ MonoBehaviour:
   - {fileID: 4127073248389356252, guid: 8e134584add9b9540b198cac9001cefd, type: 3}
   - {fileID: 946701901740193251, guid: ff8f5f457eb978241a4374da471e8cb2, type: 3}
   - {fileID: 946701901740193251, guid: 4b7b7417421333e45ab968138e9b8f8b, type: 3}
+  - {fileID: 946701901740193251, guid: 94f9983d97f441742833cd9384445b85, type: 3}
+  - {fileID: 7497257743255834239, guid: 3a059e9d1c4c247438062036897ef222, type: 3}
   startCroc: {fileID: 825078451}
   crocTimeToLeave: 30
   CrocTimerText: {fileID: 500996421}
@@ -4848,6 +4854,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2030640837, guid: a45a98e78d255634cae131b314cd447f, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4455388159442353103, guid: a45a98e78d255634cae131b314cd447f, type: 3}
       propertyPath: m_RootOrder
       value: 4
