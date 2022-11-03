@@ -1874,6 +1874,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 875166571}
     - target: {fileID: 5643673787343368281, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
+      propertyPath: pasteRemaining
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5643673787343368281, guid: 193a7e802e68ed04cb03c51d8093dff9, type: 3}
       propertyPath: clips.Array.size
       value: 4
       objectReference: {fileID: 0}
@@ -4848,6 +4852,10 @@ PrefabInstance:
     serializedVersion: 2
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2030640837, guid: a45a98e78d255634cae131b314cd447f, type: 3}
+      propertyPath: m_Volume
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4455388159442353103, guid: a45a98e78d255634cae131b314cd447f, type: 3}
       propertyPath: m_RootOrder
       value: 4

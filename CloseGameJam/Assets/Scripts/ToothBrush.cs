@@ -11,6 +11,13 @@ public class ToothBrush : MonoBehaviour
     [SerializeField] float maxPaste = 100;
     [SerializeField] GameObject pasteArt;
 
+    float startPitch;
+
+    private void Start()
+    {
+        startPitch = audioSource.pitch;
+    }
+
     private void Update()
     {
         pasteArt.transform.localScale = new Vector3(0.5f + 0.5f * (pasteRemaining / maxPaste), (pasteRemaining / maxPaste), 0);
@@ -40,6 +47,7 @@ public class ToothBrush : MonoBehaviour
             {
                 pasteRemaining--;
                 collision.gameObject.GetComponent<Tooth>().BrushTooth();
+                audioSource.pitch = Random.Range(startPitch - 0.25f, startPitch + 0.25f);
                 audioSource.PlayOneShot(clips[Random.Range(0, clips.Count)]);
                 Debug.Log(collision.gameObject.name + " was brushed");
             }
