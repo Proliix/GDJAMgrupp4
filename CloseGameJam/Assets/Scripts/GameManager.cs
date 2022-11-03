@@ -1,13 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     [Header("Crocodile")]
     public GameObject[] cocodilePrefabs;
     public GameObject startCroc;
+    [Range(0, 60)]
+    public float crocTimeToLeave = 15;
+    public TextMeshProUGUI CrocTimerText;
 
+    float crocTimer;
     Vector3 startPos;
     GameObject currentCroc;
     Animator anim;
@@ -21,13 +27,33 @@ public class GameManager : MonoBehaviour
         startPos = currentCroc.transform.position;
         anim = currentCroc.GetComponent<Animator>();
         toothManager = gameObject.GetComponent<ToothManager>();
+        crocTimer = crocTimeToLeave;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (crocTimer > 0)
+        {
+            crocTimer -= Time.deltaTime;
+        }
+        else if (crocTimer <= 0)
+        {
+            crocTimer = 0;
+        }
 
-        if (!isSendingOut && toothManager.doneCleaning)
+        if (!isSendingOut)
+            CrocTimerText.text = crocTimer.ToString("F2");
+
+
+
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Debug.LogWarning("IMPLEMENT PROPPER PAUSE MENU/EXIT");
+            SceneManager.LoadScene("Menu");
+        }
+
+        if (!isSendingOut && toothManager.doneCleaning || !isSendingOut && crocTimer <= 0)
         {
             SendOutCocodile();
         }
@@ -49,6 +75,7 @@ public class GameManager : MonoBehaviour
         anim = currentCroc.GetComponent<Animator>();
         toothManager.InitializeTeeth(currentCroc.GetComponent<AligatorController>());
         yield return new WaitForSeconds(1);
+        crocTimer = crocTimeToLeave;
         isSendingOut = false;
     }
 }
