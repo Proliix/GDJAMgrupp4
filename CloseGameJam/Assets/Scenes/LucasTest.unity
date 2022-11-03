@@ -3483,7 +3483,7 @@ MonoBehaviour:
   gameOverObj: {fileID: 884005914}
   ClockArrow: {fileID: 124633299}
   Background: {fileID: 1853657074}
-  DayNightTime: 20
+  DayNightTime: 150
   scoreManager: {fileID: 1631245426}
   currentCroc: {fileID: 0}
 --- !u!82 &1631245429
