@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
@@ -8,7 +9,13 @@ public class Health : MonoBehaviour
     [SerializeField] int health = 3;
     [SerializeField] GameObject deathScreen;
     [SerializeField] GameObject birdAnimObj;
+    [Header("UI")]
+    public GameObject healthImage;
+    public Sprite normalHp;
+    public Sprite DepleatedHp;
+    public float imageGap = 10;
 
+    GameObject[] healthImages;
     Animator birdAnim;
     BirdMovement movement;
     bool isDead = false;
@@ -16,6 +23,14 @@ public class Health : MonoBehaviour
 
     private void Start()
     {
+        healthImages = new GameObject[health];
+        healthImages[0] = healthImage;
+        for (int i = 1; i < health; i++)
+        {
+            Vector3 pos = new Vector3(healthImages[i - 1].transform.position.x + imageGap, healthImages[i - 1].transform.position.y, healthImages[i - 1].transform.position.z);
+            GameObject img = Instantiate(healthImage, pos, healthImage.transform.rotation, healthImage.transform.parent);
+            healthImages[i] = img;
+        }
         playerCol = gameObject.GetComponent<CircleCollider2D>();
         deathScreen.SetActive(false);
         movement = gameObject.GetComponent<BirdMovement>();
@@ -42,6 +57,14 @@ public class Health : MonoBehaviour
         {
             birdAnim.SetTrigger("TakeDamage");
             health--;
+            for (int i = 0; i < healthImages.Length; i++)
+            {
+                if (i > health - 1)
+                {
+                    healthImages[i].GetComponent<RawImage>().texture = DepleatedHp.texture;
+                }
+            }
+
             movement.isMovingTowardsPosition = true;
             playerCol.enabled = false;
             if (health <= 0)
