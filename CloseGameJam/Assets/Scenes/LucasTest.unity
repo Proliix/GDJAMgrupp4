@@ -3477,7 +3477,7 @@ MonoBehaviour:
   gameOverObj: {fileID: 884005914}
   ClockArrow: {fileID: 124633299}
   Background: {fileID: 1853657074}
-  DayNightTime: 300
+  DayNightTime: 150
   scoreManager: {fileID: 1631245426}
 --- !u!1 &1681053998
 GameObject:
@@ -5027,10 +5027,6 @@ PrefabInstance:
     - target: {fileID: 7497257743255834239, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
       propertyPath: m_Name
       value: Aligator
-      objectReference: {fileID: 0}
-    - target: {fileID: 7497257743255834239, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []

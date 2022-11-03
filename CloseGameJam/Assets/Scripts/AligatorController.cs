@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator))]
+[RequireComponent(typeof(AudioSource))]
 public class AligatorController : MonoBehaviour
 {
     [Header("Teeth")]
     public Transform[] toothPositions;
-    [Range(0,1)]
+    [Range(0, 1)]
     public float chanceForTooth;
     [Range(0, 1)]
     public float cleanedChance;
@@ -20,7 +21,7 @@ public class AligatorController : MonoBehaviour
     public Vector2 timeToResetRange;
 
 
-
+    private AudioSource audioSource;
     private float timeToShake = 5;
     private float timeToClose = 2.5f;
     private float resetTime = 3f;
@@ -36,10 +37,14 @@ public class AligatorController : MonoBehaviour
         timeToShake = Random.Range(timeToShakeRange.x, timeToShakeRange.y);
         timeToClose = Random.Range(timeToCloseRange.x, timeToCloseRange.y);
         resetTime = Random.Range(timeToResetRange.x, timeToResetRange.y);
-
+        audioSource = gameObject.GetComponent<AudioSource>();
 
     }
 
+    public void PlayBiteSound()
+    {
+        audioSource.PlayOneShot(audioSource.clip);
+    }
     // Update is called once per frame
     void Update()
     {
@@ -51,6 +56,7 @@ public class AligatorController : MonoBehaviour
         }
         else if (timer >= (timeToShake + timeToClose) && !hasClosed)
         {
+
             anim.SetTrigger("CloseMouth");
             hasClosed = true;
         }
