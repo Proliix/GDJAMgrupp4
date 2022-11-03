@@ -19,7 +19,7 @@ public class Scoreboard : MonoBehaviour
         }
         scores.Sort();
         scores.Reverse();
-        for(int i = 0; i < scores.Count; i++)
+        for(int i = 0; i < Mathf.Min(scores.Count,4); i++)
         {
             GameObject buttonWithText = Instantiate(blankButtonWithTextPrefab, scoreBoardPanel.transform);
             buttonWithText.GetComponentInChildren<TextMeshProUGUI>().text = scores[i].ToString();
