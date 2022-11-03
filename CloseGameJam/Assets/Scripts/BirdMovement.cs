@@ -89,7 +89,7 @@ public class BirdMovement : MonoBehaviour
         else
         {
             toothbrushObject.transform.Rotate(transform.forward, Mathf.Sign(toothbrushObject.transform.localRotation.eulerAngles.z - 180) * 180 * Time.deltaTime);
-            if (Mathf.Abs(toothbrushObject.transform.eulerAngles.z) < 720 * Time.deltaTime)
+            if (Mathf.Abs(toothbrushObject.transform.eulerAngles.z) < 1)
             {
                 toothbrushObject.transform.localRotation = Quaternion.Euler(0, 0, 0);
             }
