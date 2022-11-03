@@ -58,6 +58,8 @@ public class AligatorController : MonoBehaviour
     {
         anim.SetTrigger("ForceBite");
         timer = timeToShake + timeToClose;
+        isShaking = true;
+        hasClosed = true;
     }
 
     // Update is called once per frame
