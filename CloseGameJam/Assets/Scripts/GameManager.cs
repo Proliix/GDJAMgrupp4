@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     public GameObject ClockArrow;
     public GameObject Background;
     public float DayNightTime = 300;
+    [Header("Extras")]
+    [SerializeField] ScoreManager scoreManager;
 
 
     Health pHealth;
@@ -51,12 +53,14 @@ public class GameManager : MonoBehaviour
 
     public void LoadMenu()
     {
+        scoreManager.AddScoreToHighscore();
         Time.timeScale = 1;
         SceneManager.LoadScene("Menu");
     }
 
     public void ReloadScene()
     {
+        scoreManager.AddScoreToHighscore();
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

@@ -17,8 +17,8 @@ public class Scoreboard : MonoBehaviour
         {
             scores.Add(PlayerPrefs.GetInt("Highscore"+i,0));
         }
-        PlayerPrefs.SetInt("NumScores", 1);
-        PlayerPrefs.SetInt("Highscore0", 667);
+        scores.Sort();
+        scores.Reverse();
         for(int i = 0; i < scores.Count; i++)
         {
             GameObject buttonWithText = Instantiate(blankButtonWithTextPrefab, scoreBoardPanel.transform);

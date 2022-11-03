@@ -6,7 +6,6 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
     public int score;
-
     [Header("UI Elements")]
     public TextMeshProUGUI ScoreText;
 
@@ -20,4 +19,16 @@ public class ScoreManager : MonoBehaviour
         ScoreText.text = "" + score;
     }
 
+    public void AddScoreToHighscore(int scoreToAdd)
+    {
+        int numScores = PlayerPrefs.GetInt("NumScores", 0);
+        PlayerPrefs.SetInt("NumScores", numScores + 1);
+        PlayerPrefs.SetInt("Highscore" + numScores, scoreToAdd);
+    }
+    public void AddScoreToHighscore()
+    {
+        int numScores = PlayerPrefs.GetInt("NumScores", 0);
+        PlayerPrefs.SetInt("NumScores", numScores + 1);
+        PlayerPrefs.SetInt("Highscore" + numScores,score);
+    }
 }

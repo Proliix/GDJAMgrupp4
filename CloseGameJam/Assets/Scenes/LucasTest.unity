@@ -3347,6 +3347,7 @@ MonoBehaviour:
   ClockArrow: {fileID: 124633299}
   Background: {fileID: 1853657074}
   DayNightTime: 300
+  scoreManager: {fileID: 1631245426}
 --- !u!1 &1681053998
 GameObject:
   m_ObjectHideFlags: 0
