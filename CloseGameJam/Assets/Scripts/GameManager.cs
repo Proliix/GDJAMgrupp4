@@ -16,12 +16,19 @@ public class GameManager : MonoBehaviour
     public GameObject pauseObj;
     [Header("GameOver")]
     public GameObject gameOverObj;
+    [Header("Day Night Cycle")]
+    public GameObject ClockArrow;
+    public GameObject Background;
+    public float DayNightTime = 300;
+
 
     Health pHealth;
     float crocTimer;
     Vector3 startPos;
     GameObject currentCroc;
     Animator anim;
+    Animator clockArmAnim;
+    Animator backgroundAnim;
     ToothManager toothManager;
     bool isSendingOut = false;
 
@@ -29,6 +36,10 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         ResumeGame();
+        clockArmAnim = ClockArrow.GetComponent<Animator>();
+        backgroundAnim = Background.GetComponent<Animator>();
+        clockArmAnim.SetFloat("TimeScale", 1 / DayNightTime);
+        backgroundAnim.SetFloat("TimeScale", 1 / DayNightTime);
         pHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         gameOverObj.SetActive(false);
         currentCroc = startCroc;
@@ -61,6 +72,13 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        DayNightTime -= Time.deltaTime;
+
+        if (DayNightTime <= 0)
+        {
+            pHealth.isDead = true;
+        }
+
         if (crocTimer > 0)
         {
             crocTimer -= Time.deltaTime;
