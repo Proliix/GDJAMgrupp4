@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class ToothBrush : MonoBehaviour
 {
-
+    [SerializeField] List<AudioClip> clips;
+    [SerializeField] AudioSource audioSource;
     [SerializeField] float pasteRemaining;
     [SerializeField] float maxPaste = 100;
     [SerializeField] GameObject pasteArt;
@@ -38,6 +40,7 @@ public class ToothBrush : MonoBehaviour
             {
                 pasteRemaining--;
                 collision.gameObject.GetComponent<Tooth>().BrushTooth();
+                audioSource.PlayOneShot(clips[Random.Range(0, clips.Count)]);
                 Debug.Log(collision.gameObject.name + " was brushed");
             }
         }
