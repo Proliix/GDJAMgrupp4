@@ -20,7 +20,7 @@ public class AligatorController : MonoBehaviour
     [Tooltip("Reset time is timeToClose + resetTime")]
     public Vector2 timeToResetRange;
 
-
+    private GameManager gameManager;
     private AudioSource audioSource;
     private float timeToShake = 5;
     private float timeToClose = 2.5f;
@@ -33,6 +33,7 @@ public class AligatorController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>();
         anim = gameObject.GetComponent<Animator>();
         timeToShake = Random.Range(timeToShakeRange.x, timeToShakeRange.y);
         timeToClose = Random.Range(timeToCloseRange.x, timeToCloseRange.y);
@@ -45,6 +46,12 @@ public class AligatorController : MonoBehaviour
     {
         audioSource.PlayOneShot(audioSource.clip);
     }
+
+    public void StartCameraShake()
+    {
+        gameManager.StartShake();
+    }
+
     // Update is called once per frame
     void Update()
     {
