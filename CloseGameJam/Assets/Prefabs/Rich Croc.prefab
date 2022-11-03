@@ -161,7 +161,7 @@ MonoBehaviour:
   - {fileID: 7289287581467070581}
   - {fileID: 7289287580120607002}
   chanceForTooth: 0.95
-  cleanedChance: 0.4
+  cleanedChance: 0.3
   achingChance: 0.08
   teethHealth: {x: 10, y: 17}
   timeToShakeRange: {x: 2, y: 4}
