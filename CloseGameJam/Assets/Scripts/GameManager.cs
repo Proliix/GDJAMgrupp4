@@ -12,6 +12,9 @@ public class GameManager : MonoBehaviour
     [Range(0, 60)]
     public float crocTimeToLeave = 15;
     public TextMeshProUGUI CrocTimerText;
+    [Header("Pause")]
+    public GameObject pauseObj;
+
 
     float crocTimer;
     Vector3 startPos;
@@ -23,12 +26,33 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        ResumeGame();
         currentCroc = startCroc;
         startPos = currentCroc.transform.position;
         anim = currentCroc.GetComponent<Animator>();
         toothManager = gameObject.GetComponent<ToothManager>();
         crocTimer = crocTimeToLeave;
     }
+
+    public void LoadMenu()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
+    }
+
+    public void ReloadScene()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void ResumeGame()
+    {
+        pauseObj.SetActive(false);
+        Time.timeScale = 1;
+
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -49,8 +73,8 @@ public class GameManager : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            Debug.LogWarning("IMPLEMENT PROPPER PAUSE MENU/EXIT");
-            SceneManager.LoadScene("Menu");
+            Time.timeScale = 0;
+            pauseObj.SetActive(true);
         }
 
         if (!isSendingOut && toothManager.doneCleaning || !isSendingOut && crocTimer <= 0)
