@@ -1244,6 +1244,7 @@ MonoBehaviour:
   - {fileID: 803721862}
   chanceForTooth: 0.9
   cleanedChance: 0.2
+  achingChance: 0
   teethHealth: {x: 4, y: 10}
   timeToShakeRange: {x: 2, y: 5}
   timeToCloseRange: {x: 2, y: 3}

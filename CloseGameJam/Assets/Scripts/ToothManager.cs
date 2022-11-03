@@ -25,6 +25,10 @@ public class ToothManager : MonoBehaviour
                 {
                     tooth.totalbrushes = 0;
                 }
+                if(Random.value < aligatorController.achingChance)
+                {
+                    tooth.isAching = true;
+                }
                 else
                 {
                     tooth.totalbrushes = Random.Range(Mathf.FloorToInt(aligatorController.teethHealth.x), Mathf.FloorToInt(aligatorController.teethHealth.y) + 1);
@@ -43,7 +47,7 @@ public class ToothManager : MonoBehaviour
         bool allCleaned = true;
         for(int i = 0; i < toothList.Count; i++)
         {
-            if (toothList[i].brushesRemaining > 0)
+            if (toothList[i].brushesRemaining > 0 || toothList[0].isAching)
             {
                 allCleaned = false;
                 break;

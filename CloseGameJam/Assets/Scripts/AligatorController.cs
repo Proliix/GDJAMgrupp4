@@ -12,6 +12,8 @@ public class AligatorController : MonoBehaviour
     public float chanceForTooth;
     [Range(0, 1)]
     public float cleanedChance;
+    [Range(0, 1)]
+    public float achingChance;
     public Vector2 teethHealth;
     [Header("Timer")]
     public Vector2 timeToShakeRange;

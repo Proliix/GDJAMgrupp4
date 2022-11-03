@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     Health pHealth;
     float crocTimer;
     Vector3 startPos;
-    GameObject currentCroc;
+    public GameObject currentCroc;
     Animator anim;
     Animator clockArmAnim;
     Animator backgroundAnim;

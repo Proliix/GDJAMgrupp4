@@ -11,8 +11,11 @@ public class Tooth : MonoBehaviour
     [SerializeField] Sprite dirtyToothSprite;
     [SerializeField] Sprite halfCleanedToothSprite;
     [SerializeField] Sprite cleanedToothSprite;
+    [SerializeField] Sprite achingToothSprite;
     [SerializeField] GameObject cleanedParticles;
     [SerializeField] GameObject brushParticles;
+    public bool isAching;
+
 
     ScoreManager scoreManager;
 
@@ -24,9 +27,17 @@ public class Tooth : MonoBehaviour
     }
     public void BrushTooth()
     {
-        brushesRemaining--;
-        Destroy(Instantiate(brushParticles, this.gameObject.transform.position, Quaternion.identity),2f);
-        UpdateToothLook();
+        if(isAching)
+        {
+            GameObject.FindGameObjectWithTag("GameController").GetComponent<GameManager>().currentCroc.GetComponent<AligatorController>().ForceBite();
+        }
+        else
+        {
+            brushesRemaining--;
+            Destroy(Instantiate(brushParticles, this.gameObject.transform.position, Quaternion.identity), 2f);
+            UpdateToothLook();
+        }
+        
     }
 
     private void UpdateToothLook()
@@ -47,6 +58,11 @@ public class Tooth : MonoBehaviour
 
     private void SetToothLook()
     {
+        if(isAching)
+        {
+            spriteRenderer.sprite = achingToothSprite;
+            return;
+        }
         if (brushesRemaining <= 0)
         {
             spriteRenderer.sprite = cleanedToothSprite;
