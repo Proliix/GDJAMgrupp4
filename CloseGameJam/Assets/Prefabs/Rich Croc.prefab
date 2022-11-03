@@ -162,9 +162,9 @@ MonoBehaviour:
   chanceForTooth: 0.95
   cleanedChance: 0.4
   teethHealth: {x: 10, y: 17}
-  timeToShakeRange: {x: 2, y: 5}
-  timeToCloseRange: {x: 0, y: 1}
-  timeToResetRange: {x: 1, y: 2}
+  timeToShakeRange: {x: 2, y: 4}
+  timeToCloseRange: {x: 1, y: 2}
+  timeToResetRange: {x: 2, y: 4}
 --- !u!95 &946701901740193276
 Animator:
   serializedVersion: 4
