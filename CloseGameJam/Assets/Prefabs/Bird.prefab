@@ -698,7 +698,7 @@ MonoBehaviour:
   useSmoothMovement: 0
   usePhysicsMovement: 1
   speed: 10
-  hurtPosition: {x: -0.42, y: -0.81, z: 0}
+  hurtPosition: {x: -2.42, y: -0.81, z: 0}
   isMovingTowardsPosition: 0
 --- !u!114 &315728187
 MonoBehaviour:
@@ -714,6 +714,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   deathScreen: {fileID: 0}
+  birdAnimObj: {fileID: 1601388801}
 --- !u!50 &1749095624
 Rigidbody2D:
   serializedVersion: 4
@@ -780,8 +781,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5643673787343368286}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.93, y: -0.793, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.338, y: -0.979, z: 0}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1185096888}
