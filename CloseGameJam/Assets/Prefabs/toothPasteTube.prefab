@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ea36d3f6bec28f545b9077f743de5b41, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 22cbad0bc614088439393835aee16d93, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 1
   m_FlipY: 0
@@ -159,8 +159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ToothPaste: {fileID: 8228943590174123156, guid: fd220c659606deb44a9d281514232063, type: 3}
   SpawnPos: {fileID: 4455388158691126072}
-  NormalTube: {fileID: 21300000, guid: ea36d3f6bec28f545b9077f743de5b41, type: 3}
-  squishedTube: {fileID: 21300000, guid: 0a26ec7aba1c9364ebfd5401504345bd, type: 3}
+  NormalTube: {fileID: 21300000, guid: 22cbad0bc614088439393835aee16d93, type: 3}
+  squishedTube: {fileID: 21300000, guid: 20287ad0bb0671141bbb3154a3554097, type: 3}
 --- !u!50 &4455388159442353100
 Rigidbody2D:
   serializedVersion: 4

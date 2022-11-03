@@ -7,7 +7,9 @@ public class Health : MonoBehaviour
 {
     [SerializeField] int health = 3;
     [SerializeField] GameObject deathScreen;
+    [SerializeField] GameObject birdAnimObj;
 
+    Animator birdAnim;
     BirdMovement movement;
     bool isDead = false;
     CircleCollider2D playerCol;
@@ -17,6 +19,7 @@ public class Health : MonoBehaviour
         playerCol = gameObject.GetComponent<CircleCollider2D>();
         deathScreen.SetActive(false);
         movement = gameObject.GetComponent<BirdMovement>();
+        birdAnim = birdAnimObj.GetComponent<Animator>();
     }
 
     private void Update()
@@ -29,6 +32,7 @@ public class Health : MonoBehaviour
 
         if (playerCol.enabled == false && movement.isMovingTowardsPosition == false)
         {
+            birdAnim.SetTrigger("Return");
             playerCol.enabled = true;
         }
     }
@@ -42,7 +46,7 @@ public class Health : MonoBehaviour
     {
         if (movement.isMovingTowardsPosition == false)
         {
-            Debug.Log("Took damage");
+            birdAnim.SetTrigger("TakeDamage");
             health--;
             movement.isMovingTowardsPosition = true;
             playerCol.enabled = false;
