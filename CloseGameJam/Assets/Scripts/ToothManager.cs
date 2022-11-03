@@ -48,7 +48,7 @@ public class ToothManager : MonoBehaviour
         bool allCleaned = true;
         for(int i = 0; i < toothList.Count; i++)
         {
-            if (toothList[i].brushesRemaining > 0 || toothList[0].isAching)
+            if (toothList[i].brushesRemaining > 0 && !toothList[i].isAching)
             {
                 allCleaned = false;
                 break;

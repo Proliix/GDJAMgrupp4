@@ -7,6 +7,15 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] GameObject creditsPanel;
     [SerializeField] GameObject helpPanel;
+    private void Start()
+    {
+        int hasPlayed = PlayerPrefs.GetInt("HasPlayed", 0);
+        if(hasPlayed == 1)
+        {
+            CloseHelpMenu();
+        }
+        PlayerPrefs.SetInt("HasPlayed", 1);
+    }
     public void PlayButtonPressed()
     {
         SceneManager.LoadScene("LucasTest");
