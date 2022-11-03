@@ -5155,6 +5155,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Aligator
       objectReference: {fileID: 0}
+    - target: {fileID: 7497257743489518792, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_AddedGameObjects: []
   m_SourcePrefab: {fileID: 100100000, guid: 49fb954f1bcc4364abd5fce9aca97f63, type: 3}

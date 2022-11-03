@@ -210,6 +210,7 @@ MonoBehaviour:
   - {fileID: 7289287580120607002}
   chanceForTooth: 0.65
   cleanedChance: 0.3
+  achingChance: 0
   teethHealth: {x: 4, y: 8}
   timeToShakeRange: {x: 4, y: 5}
   timeToCloseRange: {x: 0.25, y: 0.75}
@@ -571,7 +572,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 0de0fb72f1b14994096b622303af8465, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
