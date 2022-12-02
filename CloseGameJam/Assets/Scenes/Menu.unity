@@ -693,11 +693,11 @@ MonoBehaviour:
   m_text: 'Artists
 
 
-    Martina
+    Martina Johansson
 
-    Ellen
+    Ellen Hunton Anderson
 
-    Nisa
+    Nisa Tokmak
 
 
 '
@@ -763,7 +763,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: -0.00004568843, z: 0, w: 0}
+  m_margin: {x: -118.37625, y: -0.00004568843, z: -73.70621, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -2383,9 +2383,9 @@ MonoBehaviour:
   m_text: 'Programmers
 
 
-    Lucas
+    Lucas Andreasson
 
-    Samuel'
+    Samuel Karlsson'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2cd6674eb24c9a949961647d133b9a74, type: 2}
   m_sharedMaterial: {fileID: -6149749728870547241, guid: 2cd6674eb24c9a949961647d133b9a74, type: 2}
@@ -2448,7 +2448,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -42.436813, y: 0, z: -89.34105, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
